@@ -44,13 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
+      <nav>
         <h1>All The API's</h1>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-select-small-label">Categories</InputLabel>
@@ -71,7 +65,7 @@ function App() {
         </FormControl>
       </nav>
       {apis.map((each: any, idx: number) => (
-        <Accordion key={idx}>
+        <Accordion className="row" key={idx}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"

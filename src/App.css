@@ -1,11 +1,24 @@
 .App {
   text-align: center;
+  padding: 1%;
+  background-color: whitesmoke;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: #e3f4e5;
+  color: grayscale;
+  margin-bottom: 1%;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
+.row:hover {
+  background-color: #c5c8c5;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
