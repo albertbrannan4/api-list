@@ -86,7 +86,7 @@ function App() {
             <AccordionDetails>
               <Typography>Description: {each.Description}</Typography>
               <a href={each.Link} target="_blank" rel="noreferrer">
-                {each.Link}
+                Click Me
               </a>
             </AccordionDetails>
           </Accordion>
