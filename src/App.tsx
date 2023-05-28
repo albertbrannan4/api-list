@@ -23,8 +23,15 @@ async function getAllAPI(address: string) {
   }
 }
 
+type API = {
+  Description: string;
+  API: string;
+  Link: string;
+  Category: string;
+};
+
 function App() {
-  const [apis, setAPIS] = useState<{}[]>([]);
+  const [apis, setAPIS] = useState<API[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   useEffect(() => {
     const fetchData = async () => {
