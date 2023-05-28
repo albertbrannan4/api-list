@@ -14,6 +14,16 @@ nav {
   align-items: center;
 }
 
+.row {
+  width: 70%;
+}
+
 .row:hover {
   background-color: #c5c8c5;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

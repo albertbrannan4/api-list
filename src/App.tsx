@@ -71,25 +71,27 @@ function App() {
           </Select>
         </FormControl>
       </nav>
-      {apis.map((each: any, idx: number) => (
-        <Accordion className="row" key={idx}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>
-              {each.API} ({each.Category})
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>Description: {each.Description}</Typography>
-            <a href={each.Link} target="_blank" rel="noreferrer">
-              {each.Link}
-            </a>
-          </AccordionDetails>
-        </Accordion>
-      ))}
+      <div className="main">
+        {apis.map((each: any, idx: number) => (
+          <Accordion className="row" key={idx}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                {each.API} ({each.Category})
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>Description: {each.Description}</Typography>
+              <a href={each.Link} target="_blank" rel="noreferrer">
+                {each.Link}
+              </a>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </div>
     </div>
   );
 }
