@@ -49,6 +49,12 @@ function App() {
 
   const handleChange = () => {};
 
+  const filterCondition = (apis: any) => {
+    return apis.Category === "Cryptocurrency";
+  };
+
+  const filteredApis = apis.filter(filterCondition);
+
   return (
     <div className="App">
       <nav>
@@ -72,7 +78,7 @@ function App() {
         </FormControl>
       </nav>
       <div className="main">
-        {apis.map((each: any, idx: number) => (
+        {filteredApis.map((each, idx) => (
           <Accordion className="row" key={idx}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -97,3 +103,23 @@ function App() {
 }
 
 export default App;
+
+// {apis.map((each: any, idx: number) => (
+// <Accordion className="row" key={idx}>
+//   <AccordionSummary
+//     expandIcon={<ExpandMoreIcon />}
+//     aria-controls="panel1a-content"
+//     id="panel1a-header"
+//   >
+//     <Typography>
+//       {each.API} ({each.Category})
+//     </Typography>
+//   </AccordionSummary>
+//   <AccordionDetails>
+//     <Typography>Description: {each.Description}</Typography>
+//     <a href={each.Link} target="_blank" rel="noreferrer">
+//       Click Me
+//     </a>
+//   </AccordionDetails>
+// </Accordion>
+// ))}
