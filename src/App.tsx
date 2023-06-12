@@ -32,7 +32,7 @@ type API = {
 
 function App() {
   const [apis, setAPIS] = useState<API[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string>("All");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,15 +47,16 @@ function App() {
     fetchData();
   }, []);
 
-  const handleChange = () => {};
+  const handleChange = (e: any) => {
+    const { value } = e.target;
+    setCategories(value);
+  };
 
   const filteredApis = apis.filter((apis: any) => {
-    let ChosenCategory = "All";
-
-    if (ChosenCategory === "All") {
+    if (categories === "All") {
       return true;
     } else {
-      return apis.Category === ChosenCategory;
+      return apis.Category === categories;
     }
   });
 
@@ -63,7 +64,7 @@ function App() {
     <div className="App">
       <nav>
         <h1>All The API's</h1>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+        <FormControl sx={{ m: 1, minWidth: 250 }} size="small">
           <InputLabel id="demo-select-small-label">Categories</InputLabel>
           <Select
             labelId="demo-select-small-label"
@@ -72,12 +73,11 @@ function App() {
             label="Age"
             onChange={handleChange}
           >
-            <MenuItem value="">
-              <em>None</em>
+            <MenuItem value="All">
+              <em>All</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value="Development">Development</MenuItem>
+            <MenuItem value="Business">Business</MenuItem>
           </Select>
         </FormControl>
       </nav>
