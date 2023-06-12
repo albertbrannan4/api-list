@@ -30,9 +30,23 @@ type API = {
   Category: string;
 };
 
+const CategoryOptions: string[] = [
+  "All",
+  "Anime",
+  "Blockchain",
+  "Books",
+  "Business",
+  "Cryptocurrency",
+  "Development",
+];
+
 function App() {
   const [apis, setAPIS] = useState<API[]>([]);
-  const [categories, setCategories] = useState<string>("All");
+  const [categories, setCategories] = useState<string[]>(CategoryOptions);
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categories[0]
+  );
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,14 +63,14 @@ function App() {
 
   const handleChange = (e: any) => {
     const { value } = e.target;
-    setCategories(value);
+    setSelectedCategory(value);
   };
 
   const filteredApis = apis.filter((apis: any) => {
-    if (categories === "All") {
+    if (selectedCategory === "All") {
       return true;
     } else {
-      return apis.Category === categories;
+      return apis.Category === selectedCategory;
     }
   });
 
@@ -69,15 +83,16 @@ function App() {
           <Select
             labelId="demo-select-small-label"
             id="demo-select-small"
-            value={categories}
+            value={selectedCategory}
             label="Age"
+            name="selectedCategory"
             onChange={handleChange}
           >
-            <MenuItem value="All">
-              <em>All</em>
-            </MenuItem>
-            <MenuItem value="Development">Development</MenuItem>
-            <MenuItem value="Business">Business</MenuItem>
+            {categories.map((each) => (
+              <MenuItem key={each} value={each}>
+                {each}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </nav>
