@@ -49,11 +49,15 @@ function App() {
 
   const handleChange = () => {};
 
-  const filterCondition = (apis: any) => {
-    return apis.Category === "Cryptocurrency";
-  };
+  const filteredApis = apis.filter((apis: any) => {
+    let ChosenCategory = "All";
 
-  const filteredApis = apis.filter(filterCondition);
+    if (ChosenCategory === "All") {
+      return true;
+    } else {
+      return apis.Category === ChosenCategory;
+    }
+  });
 
   return (
     <div className="App">
