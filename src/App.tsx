@@ -104,7 +104,9 @@ function App() {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>{each.API}</Typography>
+              <Typography style={{ fontWeight: 550, fontSize: "1.2rem" }}>
+                {each.API}
+              </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>Description: {each.Description}</Typography>
