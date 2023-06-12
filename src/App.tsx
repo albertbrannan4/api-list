@@ -104,14 +104,13 @@ function App() {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>
-                {each.API} ({each.Category})
-              </Typography>
+              <Typography>{each.API}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>Description: {each.Description}</Typography>
+              <Typography>Category: {each.Category}</Typography>
               <a href={each.Link} target="_blank" rel="noreferrer">
-                Click Me
+                Docs
               </a>
             </AccordionDetails>
           </Accordion>
